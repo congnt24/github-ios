@@ -1,0 +1,39 @@
+PODS:
+  - Alamofire (4.4.0)
+  - Localize-Swift (1.7.1)
+  - Moya/Core (8.0.4):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - Moya/RxSwift (8.0.4):
+    - Moya/Core
+    - RxSwift (~> 3.0)
+  - Result (3.2.2)
+  - RxCocoa (3.4.1):
+    - RxSwift (~> 3.4)
+  - RxDataSources (1.0.3):
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
+  - RxSwift (3.4.1)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - Localize-Swift
+  - Moya/RxSwift
+  - RxCocoa
+  - RxDataSources
+  - RxSwift
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Localize-Swift: 6cabc1087c0e910e77bfa87c2ed3f65c80c0b2df
+  Moya: a08bc060c7a44eee27447b239ed33a189b641e2b
+  Result: 4edd39003fdccf281d418ee1b006571f70123250
+  RxCocoa: a8a5f1d061d0043e28f56976829f31ce63e8eb09
+  RxDataSources: a021a0e944ba5f7991259829d973afdbfa719c0b
+  RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: cbec27a5d7ae53ea87679c75a93c121193a65a20
+
+COCOAPODS: 1.2.1
