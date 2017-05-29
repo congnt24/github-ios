@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  GithubDemo
+
+  Created by apple on 5/29/17.
+  Copyright © 2017 apple. All rights reserved.
+*/
+"hello" = "Xin chao";
+"english" = "TA";
+"vietnamese" = "TV";
+"cancel" = "Huy";
+"change_language_title" = "Doi Ngon Ngu";
+"change_language_message" = "Change Language";
