@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SlideMenuControllerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,10 +18,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //setup left menu
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let leftMenuVc = storyboard.instantiateViewController(withIdentifier: "left_menu")
+        
+        
         let navigation = UINavigationController()
         let appCoordinator = AppCoordinator(navigation)
         appCoordinator.start()
-        window?.rootViewController = navigation
+        
+        SlideMenuOptions.leftViewWidth = 200.0
+        SlideMenuOptions.contentViewDrag = true
+        let slideMenu = SlideMenuController(mainViewController: navigation, leftMenuViewController: leftMenuVc)
+        slideMenu.automaticallyAdjustsScrollViewInsets = true
+//        navigation.addLeftBarButtonWithImage(R.image.icons8Search_filled()!)
+        
+//        window?.rootViewController = navigation
+        self.window?.rootViewController = slideMenu
+        self.window?.makeKeyAndVisible()
         
         
         return true

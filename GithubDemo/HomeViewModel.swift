@@ -52,7 +52,7 @@ class HomeViewModel: BaseViewModel {
             searchText.asObservable().distinctUntilChanged()
         .debounce(0.5, scheduler: MainScheduler.instance)
         .flatMapLatest {
-            provider.request(GitHub.repoSearch(query: $0))
+            provider.request(.repoSearch(query: $0))
             .retry(3)
             .observeOn(MainScheduler.instance)
         }

@@ -8,33 +8,39 @@
 
 import UIKit
 class LanguageHelper {
-    private static let _instance = LanguageHelper()
-    public static var Instance: LanguageHelper {
-        return _instance
-    }
-    
-    let APPLE_LANGUAGE_KEY = "AppleLanguages"
+    static let APPLE_LANGUAGE_KEY = "CongLanguages"
     /// get current Apple language
-    func currentAppleLanguage() -> String{
-        return UserDefaults.standard.array(forKey: APPLE_LANGUAGE_KEY)?.first as! String
+    class func currentLanguage() -> String? {
+        return UserDefaults.standard.string(forKey: APPLE_LANGUAGE_KEY)
     }
-    func setAppleLAnguageTo(lang: String) {
+    class func setLanguageTo(lang: String) {
         let userdef = UserDefaults.standard
-        userdef.set([lang, currentAppleLanguage()], forKey: APPLE_LANGUAGE_KEY)
+        userdef.set(lang, forKey: APPLE_LANGUAGE_KEY)
         userdef.synchronize()
+    }
+}
+
+extension String {
+    func localized() -> String {
+        let currentLanguage = LanguageHelper.currentLanguage()
+        let path = Bundle.main.path(forResource: currentLanguage, ofType: "lproj")
+        if let path = path, let bundle = Bundle(path: path) {
+            return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: "")
+        }
+        return self
     }
 }
 
 
 extension UIViewController {
     func showLocalizeDialog(){
-        let dialog = UIAlertController(title: "change_language_title".localized(), message: "change_language_message".localized()
+        let dialog = UIAlertController(title: R.string.localizable.change_language_title.key.localized(), message: R.string.localizable.change_language_message.key.localized()
             , preferredStyle: UIAlertControllerStyle.actionSheet)
-        let cancel = UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil)
-        let english = UIAlertAction(title: "english".localized(), style: .default) { _ in
-            LanguageHelper.Instance.setAppleLAnguageTo(lang: "en") }
-        let vietnamese = UIAlertAction(title: "vietnamese".localized(), style: .default) { _ in
-            LanguageHelper.Instance.setAppleLAnguageTo(lang: "vi") }
+        let cancel = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: .cancel, handler: nil)
+        let english = UIAlertAction(title: R.string.localizable.english.key.localized(), style: .default) { _ in
+            LanguageHelper.setLanguageTo(lang: "en") }
+        let vietnamese = UIAlertAction(title: R.string.localizable.vietnamese.key.localized(), style: .default) { _ in
+            LanguageHelper.setLanguageTo(lang: "vi") }
         dialog.addAction(english)
         dialog.addAction(vietnamese)
         dialog.addAction(cancel)

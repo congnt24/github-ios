@@ -38,7 +38,8 @@ class LoginViewController: UIViewController {
         viewModel.loginFinished.drive(onNext: { (result) in
             switch result {
                 case .ok:
-                    self.showDialog("Success", "Login success")
+//                    self.showDialog("Success", "Login success")
+                    HomeCoordinator(self.navigationController!).start()
                 break
                 case .error(let message):
                     

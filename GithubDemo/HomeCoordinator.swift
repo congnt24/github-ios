@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import Moya
-import Localize_Swift
 
 class HomeCoordinator: Coordinator {
     override func start() {

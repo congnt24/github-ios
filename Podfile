@@ -11,5 +11,8 @@ target 'GithubDemo' do
   pod 'Moya/RxSwift'
   pod 'SwiftyJSON'
   pod 'RxDataSources'
-  pod 'Localize-Swift'
+  pod 'R.swift'
+  # View library
+  pod 'SlideMenuControllerSwift'
+  pod 'DZNEmptyDataSet'
 end

@@ -52,4 +52,8 @@ struct Token {
         }
         return false
     }
+    
+    func remove(){
+        UserDefaults.standard.removeObject(forKey: "Token")
+    }
 }
