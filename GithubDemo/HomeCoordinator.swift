@@ -14,8 +14,9 @@ class HomeCoordinator: Coordinator {
     override func start() {
         let homeVC = Coordinator.mainStoryboard.instantiateViewController(withIdentifier: "home") as! HomeViewController
         homeVC.viewModel = HomeViewModel(provider: RxMoyaProvider<GitHub>(endpointClosure: endpointClosure))
-        navigation.pushViewController(homeVC, animated: true)
+        navigation.popToRootViewController(animated: false)
         navigation.navigationBar.backgroundColor = UIColor.blue
-//        navigation.navigationBar.
+        navigation.setViewControllers([UIViewController](repeating: homeVC, count: 1), animated: true)
+//        navigation.pushViewController(homeVC, animated: true)
     }
 }

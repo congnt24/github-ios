@@ -69,6 +69,7 @@ class LeftViewController: UIViewController {
                 default:
                     //singout
                     Token().remove()
+                    AppCoordinator.instance.start()
                     break
                 }
                 break

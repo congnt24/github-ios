@@ -38,9 +38,12 @@ extension UIViewController {
             , preferredStyle: UIAlertControllerStyle.actionSheet)
         let cancel = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: .cancel, handler: nil)
         let english = UIAlertAction(title: R.string.localizable.english.key.localized(), style: .default) { _ in
-            LanguageHelper.setLanguageTo(lang: "en") }
+            LanguageHelper.setLanguageTo(lang: "en")
+            AppCoordinator.instance.start()}
         let vietnamese = UIAlertAction(title: R.string.localizable.vietnamese.key.localized(), style: .default) { _ in
-            LanguageHelper.setLanguageTo(lang: "vi") }
+            LanguageHelper.setLanguageTo(lang: "vi")
+            
+            AppCoordinator.instance.start()}
         dialog.addAction(english)
         dialog.addAction(vietnamese)
         dialog.addAction(cancel)

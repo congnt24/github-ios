@@ -16,6 +16,9 @@ class LoginCoordinator: Coordinator {
         //can create view model and pass to viewcontroller here
         let viewModel = LoginViewModel(provider: RxMoyaProvider<GitHub>(endpointClosure: endpointClosure))
         loginVC.viewModel = viewModel
-        navigation.pushViewController(loginVC, animated: true)
+        navigation.popToRootViewController(animated: false)
+//        navigation.pushViewController(loginVC, animated: true)
+        //set root view controller
+        navigation.setViewControllers([UIViewController](repeating: loginVC, count: 1), animated: true)
     }
 }
