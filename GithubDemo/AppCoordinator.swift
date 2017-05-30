@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 
 class AppCoordinator: Coordinator {
+    static var instance: AppCoordinator!
     override func start() {
+        AppCoordinator.instance = self
         //navigate your screen here
         //add new coordinator to coordinators
         //for example: start login screen
@@ -26,5 +28,9 @@ class AppCoordinator: Coordinator {
             loginCoor.start()
             coordinators["login"] = loginCoor
         }
+    }
+    
+    func startSetting(){
+        SettingCoordinator(navigation).start()
     }
 }

@@ -7,10 +7,14 @@
 //
 
 import Foundation
-import UIKit
+//should not import uikit in viewmodel
 
+protocol BaseViewModel: class {
+    
+}
 
-class BaseViewModel {
-    var navigationController: UINavigationController!
-    var service: Any!
+protocol BaseApiViewModel: class {
+    associatedtype Service
+    var service: Service { get }
+    init(_ service: Service)
 }

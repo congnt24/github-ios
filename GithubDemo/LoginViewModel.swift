@@ -26,7 +26,6 @@ class LoginViewModel: BaseViewModel {
     var loginEnable: Driver<Bool>
     var loginFinished: Driver<LoginResult>
     var loginExecuting:  Driver<Bool>
-    
     init(provider: RxMoyaProvider<GitHub>){
         //init all output variable to observable
         

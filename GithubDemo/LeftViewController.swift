@@ -60,9 +60,11 @@ class LeftViewController: UIViewController {
             default:
                 switch $0.row {
                 case 0:
+                    //setting
+                    AppCoordinator.instance.startSetting()
                     break
                 case 1:
-                    
+                    //about
                     break
                 default:
                     //singout

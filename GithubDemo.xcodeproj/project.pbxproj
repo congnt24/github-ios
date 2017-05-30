@@ -34,6 +34,9 @@
 		18B2F0591EDD221C001442E2 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2F0581EDD221C001442E2 /* LeftViewController.swift */; };
 		18B2F05C1EDD4F7E001442E2 /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2F05A1EDD4F7E001442E2 /* EmptyTableViewCell.swift */; };
 		18B2F05D1EDD4F7E001442E2 /* EmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B2F05B1EDD4F7E001442E2 /* EmptyTableViewCell.xib */; };
+		18B2F0601EDD5F70001442E2 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2F05E1EDD5F70001442E2 /* SettingViewController.swift */; };
+		18B2F0631EDD5F87001442E2 /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2F0621EDD5F87001442E2 /* SettingCoordinator.swift */; };
+		18B2F0651EDD5FAA001442E2 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2F0641EDD5FAA001442E2 /* SettingViewModel.swift */; };
 		CDDA6FF1F009DDC6E95898EC /* Pods_GithubDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 376B9E4BBE9A510F5FDF93D7 /* Pods_GithubDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +72,9 @@
 		18B2F0581EDD221C001442E2 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		18B2F05A1EDD4F7E001442E2 /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTableViewCell.swift; sourceTree = "<group>"; };
 		18B2F05B1EDD4F7E001442E2 /* EmptyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyTableViewCell.xib; sourceTree = "<group>"; };
+		18B2F05E1EDD5F70001442E2 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		18B2F0621EDD5F87001442E2 /* SettingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
+		18B2F0641EDD5FAA001442E2 /* SettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		318426D502B7CAF746B04C00 /* Pods-GithubDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-GithubDemo/Pods-GithubDemo.release.xcconfig"; sourceTree = "<group>"; };
 		376B9E4BBE9A510F5FDF93D7 /* Pods_GithubDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED350881782638EE99B70768 /* Pods-GithubDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GithubDemo/Pods-GithubDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 		183973721EDA558B009ECCB5 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				18B2F0621EDD5F87001442E2 /* SettingCoordinator.swift */,
 				183973731EDA5596009ECCB5 /* Coordinator.swift */,
 				183973751EDA5685009ECCB5 /* AppCoordinator.swift */,
 				183973771EDA575B009ECCB5 /* LoginCoordinator.swift */,
@@ -191,6 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				18B2F0581EDD221C001442E2 /* LeftViewController.swift */,
+				18B2F05E1EDD5F70001442E2 /* SettingViewController.swift */,
+				18B2F0641EDD5FAA001442E2 /* SettingViewModel.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -358,6 +367,8 @@
 				180219EE1EDC0C37001FEC31 /* BaseViewModel.swift in Sources */,
 				1839736F1EDA537F009ECCB5 /* LoginViewModel.swift in Sources */,
 				180219EB1EDC0546001FEC31 /* LanguageHelper.swift in Sources */,
+				18B2F0631EDD5F87001442E2 /* SettingCoordinator.swift in Sources */,
+				18B2F0601EDD5F70001442E2 /* SettingViewController.swift in Sources */,
 				183973781EDA575B009ECCB5 /* LoginCoordinator.swift in Sources */,
 				1839736D1EDA5373009ECCB5 /* LoginViewController.swift in Sources */,
 				183973911EDA8334009ECCB5 /* DialogUtils.swift in Sources */,
@@ -366,6 +377,7 @@
 				1839735A1EDA52D5009ECCB5 /* AppDelegate.swift in Sources */,
 				18B2F0541EDD1CB6001442E2 /* R.generated.swift in Sources */,
 				1839737D1EDA5BD0009ECCB5 /* GithubAPI.swift in Sources */,
+				18B2F0651EDD5FAA001442E2 /* SettingViewModel.swift in Sources */,
 				18B2F05C1EDD4F7E001442E2 /* EmptyTableViewCell.swift in Sources */,
 				1839738E1EDA812A009ECCB5 /* HomeViewModel.swift in Sources */,
 				183973811EDA647C009ECCB5 /* GithubError.swift in Sources */,

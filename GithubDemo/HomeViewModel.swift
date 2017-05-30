@@ -38,15 +38,12 @@ struct RepoResult {
 }
 
 class HomeViewModel: BaseViewModel {
-    var provider: RxMoyaProvider<GitHub>
     //Input
     var searchText = Variable("")
     //output
     var searchFinished: Driver<SearchResult>
     
     init(provider: RxMoyaProvider<GitHub>) {
-        self.provider = provider
-        
         //initialize output from input
         searchFinished =
             searchText.asObservable().distinctUntilChanged()

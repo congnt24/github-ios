@@ -127,6 +127,24 @@
             </objects>
             <point key="canvasLocation" x="2100" y="-179.57746478873239"/>
         </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="1fJ-UJ-kkJ">
+            <objects>
+                <viewController storyboardIdentifier="setting_vc" id="xsA-GU-pLX" customClass="SettingViewController" customModule="GithubDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zYa-G5-sRF"/>
+                        <viewControllerLayoutGuide type="bottom" id="mFU-x4-XUf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AHy-7d-f72">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="191-Y8-9tu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1193" y="-1025"/>
+        </scene>
         <!--Left View Controller-->
         <scene sceneID="5NY-ln-kaR">
             <objects>

@@ -345,6 +345,7 @@ struct _R: Rswift.Validatable {
       let left_menu = StoryboardViewControllerResource<LeftViewController>(identifier: "left_menu")
       let login = StoryboardViewControllerResource<LoginViewController>(identifier: "login")
       let name = "Main"
+      let setting_vc = StoryboardViewControllerResource<SettingViewController>(identifier: "setting_vc")
       
       func home(_: Void = ()) -> HomeViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: home)
@@ -358,10 +359,15 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: login)
       }
       
+      func setting_vc(_: Void = ()) -> SettingViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: setting_vc)
+      }
+      
       static func validate() throws {
         if _R.storyboard.main().login() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'login' could not be loaded from storyboard 'Main' as 'LoginViewController'.") }
-        if _R.storyboard.main().left_menu() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'left_menu' could not be loaded from storyboard 'Main' as 'LeftViewController'.") }
         if _R.storyboard.main().home() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'home' could not be loaded from storyboard 'Main' as 'HomeViewController'.") }
+        if _R.storyboard.main().setting_vc() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'setting_vc' could not be loaded from storyboard 'Main' as 'SettingViewController'.") }
+        if _R.storyboard.main().left_menu() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'left_menu' could not be loaded from storyboard 'Main' as 'LeftViewController'.") }
       }
       
       fileprivate init() {}
