@@ -31,23 +31,51 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 4 images.
   struct image {
+    /// Image `back_filled`.
+    static let back_filled = Rswift.ImageResource(bundle: R.hostingBundle, name: "back_filled")
+    /// Image `empty_set_filled`.
+    static let empty_set_filled = Rswift.ImageResource(bundle: R.hostingBundle, name: "empty_set_filled")
     /// Image `icons8-search_filled`.
     static let icons8Search_filled = Rswift.ImageResource(bundle: R.hostingBundle, name: "icons8-search_filled")
+    /// Image `menu_filled`.
+    static let menu_filled = Rswift.ImageResource(bundle: R.hostingBundle, name: "menu_filled")
+    
+    /// `UIImage(named: "back_filled", bundle: ..., traitCollection: ...)`
+    static func back_filled(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.back_filled, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "empty_set_filled", bundle: ..., traitCollection: ...)`
+    static func empty_set_filled(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.empty_set_filled, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "icons8-search_filled", bundle: ..., traitCollection: ...)`
     static func icons8Search_filled(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.icons8Search_filled, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "menu_filled", bundle: ..., traitCollection: ...)`
+    static func menu_filled(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menu_filled, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
   struct nib {
+    /// Nib `EmptyTableViewCell`.
+    static let emptyTableViewCell = _R.nib._EmptyTableViewCell()
     /// Nib `RepoTableViewCell`.
     static let repoTableViewCell = _R.nib._RepoTableViewCell()
+    
+    /// `UINib(name: "EmptyTableViewCell", in: bundle)`
+    static func emptyTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.emptyTableViewCell)
+    }
     
     /// `UINib(name: "RepoTableViewCell", in: bundle)`
     static func repoTableViewCell(_: Void = ()) -> UIKit.UINib {
@@ -57,12 +85,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `empty_cell`.
+    static let empty_cell: Rswift.ReuseIdentifier<EmptyTableViewCell> = Rswift.ReuseIdentifier(identifier: "empty_cell")
     /// Reuse identifier `homecell2`.
     static let homecell2: Rswift.ReuseIdentifier<RepoTableViewCell> = Rswift.ReuseIdentifier(identifier: "homecell2")
     /// Reuse identifier `homecell`.
     static let homecell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "homecell")
+    /// Reuse identifier `left_cell`.
+    static let left_cell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "left_cell")
     
     fileprivate init() {}
   }
@@ -117,14 +149,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, vi
       static let english = Rswift.StringResource(key: "english", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "vi"], comment: nil)
+      /// en translation: Home
+      /// 
+      /// Locales: en, vi
+      static let hello = Rswift.StringResource(key: "hello", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "vi"], comment: nil)
       /// en translation: Vietnamese
       /// 
       /// Locales: en, vi
       static let vietnamese = Rswift.StringResource(key: "vietnamese", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "vi"], comment: nil)
-      /// en translation: hello2
-      /// 
-      /// Locales: en, vi
-      static let hello = Rswift.StringResource(key: "hello", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "vi"], comment: nil)
       
       /// en translation: Cancel
       /// 
@@ -154,18 +186,18 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("english", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Home
+      /// 
+      /// Locales: en, vi
+      static func hello(_: Void = ()) -> String {
+        return NSLocalizedString("hello", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Vietnamese
       /// 
       /// Locales: en, vi
       static func vietnamese(_: Void = ()) -> String {
         return NSLocalizedString("vietnamese", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: hello2
-      /// 
-      /// Locales: en, vi
-      static func hello(_: Void = ()) -> String {
-        return NSLocalizedString("hello", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
@@ -262,9 +294,32 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     try storyboard.validate()
+    try nib.validate()
   }
   
-  struct nib {
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _EmptyTableViewCell.validate()
+    }
+    
+    struct _EmptyTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = EmptyTableViewCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "empty_cell"
+      let name = "EmptyTableViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> EmptyTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? EmptyTableViewCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "empty_set_filled") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'empty_set_filled' is used in nib 'EmptyTableViewCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct _RepoTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = RepoTableViewCell
       
@@ -297,24 +352,37 @@ struct _R: Rswift.Validatable {
     }
     
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = LoginViewController
+      typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
       let home = StoryboardViewControllerResource<HomeViewController>(identifier: "home")
+      let left_menu = StoryboardViewControllerResource<LeftViewController>(identifier: "left_menu")
       let login = StoryboardViewControllerResource<LoginViewController>(identifier: "login")
       let name = "Main"
+      let setting_vc = StoryboardViewControllerResource<SettingViewController>(identifier: "setting_vc")
       
       func home(_: Void = ()) -> HomeViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: home)
+      }
+      
+      func left_menu(_: Void = ()) -> LeftViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: left_menu)
       }
       
       func login(_: Void = ()) -> LoginViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: login)
       }
       
+      func setting_vc(_: Void = ()) -> SettingViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: setting_vc)
+      }
+      
       static func validate() throws {
+        if UIKit.UIImage(named: "back_filled") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'back_filled' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().login() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'login' could not be loaded from storyboard 'Main' as 'LoginViewController'.") }
         if _R.storyboard.main().home() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'home' could not be loaded from storyboard 'Main' as 'HomeViewController'.") }
+        if _R.storyboard.main().setting_vc() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'setting_vc' could not be loaded from storyboard 'Main' as 'SettingViewController'.") }
+        if _R.storyboard.main().left_menu() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'left_menu' could not be loaded from storyboard 'Main' as 'LeftViewController'.") }
       }
       
       fileprivate init() {}

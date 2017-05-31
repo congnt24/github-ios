@@ -12,13 +12,13 @@ import Moya
 
 class LoginCoordinator: Coordinator {
     override func start() {
-        let loginVC = Coordinator.mainStoryboard.instantiateViewController(withIdentifier: "login") as!LoginViewController
+        let loginVC = mainStoryboard.instantiateViewController(withIdentifier: "login") as!LoginViewController
         //can create view model and pass to viewcontroller here
         let viewModel = LoginViewModel(provider: RxMoyaProvider<GitHub>(endpointClosure: endpointClosure))
         loginVC.viewModel = viewModel
-        navigation.popToRootViewController(animated: false)
+        navigation?.popToRootViewController(animated: false)
 //        navigation.pushViewController(loginVC, animated: true)
         //set root view controller
-        navigation.setViewControllers([UIViewController](repeating: loginVC, count: 1), animated: true)
+        navigation?.setViewControllers([UIViewController](repeating: loginVC, count: 1), animated: true)
     }
 }

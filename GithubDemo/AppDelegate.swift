@@ -18,26 +18,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //seting up navigation
+        let navigation = UINavigationController()
+        navigation.setNavigationBarHidden(false, animated: true)
+        navigation.navigationBar.backgroundColor = UIColor.gray
         //setup left menu
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let leftMenuVc = storyboard.instantiateViewController(withIdentifier: "left_menu")
-        
-        
-        let navigation = UINavigationController()
-        let appCoordinator = AppCoordinator(navigation)
-        appCoordinator.start()
         
         SlideMenuOptions.leftViewWidth = 200.0
         SlideMenuOptions.contentViewDrag = true
+        
+        
+        let leftMenuVc = storyboard.instantiateViewController(withIdentifier: "left_menu")
         let slideMenu = SlideMenuController(mainViewController: navigation, leftMenuViewController: leftMenuVc)
         slideMenu.automaticallyAdjustsScrollViewInsets = true
+        slideMenu.removeLeftGestures()
+        
+        let appCoordinator = AppCoordinator(navigation)
+        appCoordinator.window = self.window!
+        appCoordinator.slideMenu = slideMenu
+        appCoordinator.start()
+        
+        
 //        navigation.addLeftBarButtonWithImage(R.image.icons8Search_filled()!)
         
 //        window?.rootViewController = navigation
         self.window?.rootViewController = slideMenu
         self.window?.makeKeyAndVisible()
-        
         
         return true
     }

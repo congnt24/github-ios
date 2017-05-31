@@ -24,25 +24,36 @@ class HomeViewController: UIViewController, UITableViewDelegate {
     var repos = Variable<[SectionModel<String, RepoResult>]>([])
     
     var dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, RepoResult>>()
+    //MARK: - Appear functions
+    
+    override func viewDidAppear(_ animated: Bool) {
+        AppCoordinator.instance.slideMenu.addLeftGestures()
+        title = "hello".localized()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        AppCoordinator.instance.slideMenu.removeLeftGestures()
+    }
+    
     //MARK: - functions
     override func viewDidLoad() {
         //Register table cell
         tableView.register(UINib(nibName: "RepoTableViewCell", bundle: nil), forCellReuseIdentifier: "homecell2")
         tableView.register(UINib(nibName: "EmptyTableViewCell", bundle: nil), forCellReuseIdentifier: "empty_cell")
         
-        
         uiRefresh.attributedTitle = NSAttributedString(string: "Pull to refresh")
         uiRefresh.addTarget(self, action: #selector(refresh(sender:)), for: UIControlEvents.valueChanged)
         tableView.addSubview(uiRefresh)
         setupRx()
         
-        title = "hello".localized()
         
-        addLeftBarButtonWithImage(R.image.icons8Search_filled()!)
+        addLeftBarButtonWithImage(R.image.menu_filled()!)
         // A little trick for removing the cell separators
         self.tableView.tableFooterView = UIView()
         
     }
+    
+    
     func refresh(sender: AnyObject){
 //        print("refresh")
         uiRefresh.endRefreshing()
@@ -88,9 +99,12 @@ class HomeViewController: UIViewController, UITableViewDelegate {
         }
 //
 //        dataSource._rx_tableView(tableView, titleForHeaderInSection: 0)
-        
         repo.asObserver().catchErrorJustReturn([SectionModel<String, RepoResult>]()).bind(to: tableView.rx.items(dataSource: dataSource)).addDisposableTo(disposeBag)
         
+        //on click
+        tableView.rx.itemSelected.bind { ip in
+            self.viewModel.goDetails()
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -113,7 +127,9 @@ class HomeViewController: UIViewController, UITableViewDelegate {
     
     
     @IBAction func language(_ sender: UIBarButtonItem) {
-        showLocalizeDialog()
+        showLocalizeDialog(){
+            AppCoordinator.instance.start()
+        }
     }
     
 }

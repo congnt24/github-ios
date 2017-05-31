@@ -11,9 +11,10 @@ import UIKit
 
 class SettingCoordinator: Coordinator {
     override func start() {
-        let settingVc = AppCoordinator.mainStoryboard.instantiateViewController(withIdentifier: "setting_vc") as! SettingViewController
+        let settingVc = mainStoryboard.instantiateViewController(withIdentifier: "setting_vc") as! SettingViewController
         //error
 //        let settingVc = UINib(nibName: "SettingViewController", bundle: nil).instantiate(withOwner: nil, options: nil).first as! SettingViewController
-        navigation.pushViewController(settingVc, animated: true)
+        navigation?.interactivePopGestureRecognizer?.isEnabled = true
+        navigation?.pushViewController(settingVc, animated: true)
     }
 }

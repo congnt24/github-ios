@@ -38,6 +38,8 @@ struct RepoResult {
 }
 
 class HomeViewModel: BaseViewModel {
+    //delegate
+    var coordinatorDelegate: HomeSelectItemInTableCiew!
     //Input
     var searchText = Variable("")
     //output
@@ -63,5 +65,9 @@ class HomeViewModel: BaseViewModel {
         }
         .asDriver(onErrorJustReturn: SearchResult.error(msg: "oops"))
         
+    }
+    
+    func goDetails() -> Void {
+        coordinatorDelegate.onClick()
     }
 }

@@ -9,14 +9,30 @@
 import Foundation
 import UIKit
 import Moya
+import SlideMenuControllerSwift
+
+protocol HomeCoordinatorDelegate {
+    func didFinishHomeCoordinator(homeCoordinator: HomeCoordinator)
+}
+
+protocol HomeSelectItemInTableCiew {
+    func onClick()
+}
 
 class HomeCoordinator: Coordinator {
     override func start() {
-        let homeVC = Coordinator.mainStoryboard.instantiateViewController(withIdentifier: "home") as! HomeViewController
+        let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "home") as! HomeViewController
         homeVC.viewModel = HomeViewModel(provider: RxMoyaProvider<GitHub>(endpointClosure: endpointClosure))
-        navigation.popToRootViewController(animated: false)
-        navigation.navigationBar.backgroundColor = UIColor.blue
-        navigation.setViewControllers([UIViewController](repeating: homeVC, count: 1), animated: true)
+        homeVC.viewModel.coordinatorDelegate = self
+        navigation?.popToRootViewController(animated: false)
+        navigation?.setViewControllers([homeVC], animated: true)
 //        navigation.pushViewController(homeVC, animated: true)
+    }
+}
+
+extension HomeCoordinator: HomeSelectItemInTableCiew {
+    func onClick() {
+        //switch to other screen
+        SettingCoordinator(navigation).start()
     }
 }

@@ -11,10 +11,12 @@
 		180219E61EDC0196001FEC31 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 180219E81EDC0196001FEC31 /* Localizable.strings */; };
 		180219EB1EDC0546001FEC31 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180219EA1EDC0546001FEC31 /* LanguageHelper.swift */; };
 		180219EE1EDC0C37001FEC31 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180219ED1EDC0C37001FEC31 /* BaseViewModel.swift */; };
+		180378A81EDDC65B00139127 /* BaseUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180378A71EDDC65B00139127 /* BaseUIExtension.swift */; };
+		180378AA1EDDCBB100139127 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180378A91EDDCBB100139127 /* BaseViewController.swift */; };
+		180378AC1EDDCEF000139127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183973601EDA52D5009ECCB5 /* Assets.xcassets */; };
 		1839735A1EDA52D5009ECCB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183973591EDA52D5009ECCB5 /* AppDelegate.swift */; };
 		1839735C1EDA52D5009ECCB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839735B1EDA52D5009ECCB5 /* ViewController.swift */; };
 		1839735F1EDA52D5009ECCB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1839735D1EDA52D5009ECCB5 /* Main.storyboard */; };
-		183973611EDA52D5009ECCB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183973601EDA52D5009ECCB5 /* Assets.xcassets */; };
 		183973641EDA52D5009ECCB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183973621EDA52D5009ECCB5 /* LaunchScreen.storyboard */; };
 		1839736D1EDA5373009ECCB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839736C1EDA5373009ECCB5 /* LoginViewController.swift */; };
 		1839736F1EDA537F009ECCB5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1839736E1EDA537F009ECCB5 /* LoginViewModel.swift */; };
@@ -47,6 +49,8 @@
 		180219E71EDC0196001FEC31 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		180219EA1EDC0546001FEC31 /* LanguageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		180219ED1EDC0C37001FEC31 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		180378A71EDDC65B00139127 /* BaseUIExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUIExtension.swift; sourceTree = "<group>"; };
+		180378A91EDDCBB100139127 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		183973561EDA52D5009ECCB5 /* GithubDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		183973591EDA52D5009ECCB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1839735B1EDA52D5009ECCB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				180219ED1EDC0C37001FEC31 /* BaseViewModel.swift */,
+				180378A71EDDC65B00139127 /* BaseUIExtension.swift */,
+				180378A91EDDCBB100139127 /* BaseViewController.swift */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -288,7 +294,7 @@
 				180219E11EDC0183001FEC31 /* Localizable.strings in Resources */,
 				180219E61EDC0196001FEC31 /* Localizable.strings in Resources */,
 				183973641EDA52D5009ECCB5 /* LaunchScreen.storyboard in Resources */,
-				183973611EDA52D5009ECCB5 /* Assets.xcassets in Resources */,
+				180378AC1EDDCEF000139127 /* Assets.xcassets in Resources */,
 				1839735F1EDA52D5009ECCB5 /* Main.storyboard in Resources */,
 				1839738C1EDA806D009ECCB5 /* RepoTableViewCell.xib in Resources */,
 			);
@@ -382,8 +388,10 @@
 				1839738E1EDA812A009ECCB5 /* HomeViewModel.swift in Sources */,
 				183973811EDA647C009ECCB5 /* GithubError.swift in Sources */,
 				183973831EDA77B1009ECCB5 /* HomeCoordinator.swift in Sources */,
+				180378AA1EDDCBB100139127 /* BaseViewController.swift in Sources */,
 				1839738B1EDA806D009ECCB5 /* RepoTableViewCell.swift in Sources */,
 				183973861EDA7820009ECCB5 /* HomeViewController.swift in Sources */,
+				180378A81EDDC65B00139127 /* BaseUIExtension.swift in Sources */,
 				18B2F0591EDD221C001442E2 /* LeftViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

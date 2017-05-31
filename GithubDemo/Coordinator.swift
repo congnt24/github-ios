@@ -11,11 +11,13 @@ import UIKit
 
 class Coordinator {
     var coordinators = [String: Any]()
-    var navigation: UINavigationController
+    var navigation: UINavigationController?
+    var window: UIWindow?
     //must init storyboard in AppDelegate
-    static var mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    var mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
-    init(_ navigation: UINavigationController) {
+    init(_ navigation: UINavigationController?, window: UIWindow? = nil) {
+        self.window = window
         self.navigation = navigation
     }
     

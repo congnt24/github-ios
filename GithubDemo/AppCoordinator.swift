@@ -8,9 +8,11 @@
 
 import Foundation
 import UIKit
+import SlideMenuControllerSwift
 
 class AppCoordinator: Coordinator {
     static var instance: AppCoordinator!
+    var slideMenu: SlideMenuController!
     override func start() {
         AppCoordinator.instance = self
         //navigate your screen here
@@ -32,5 +34,15 @@ class AppCoordinator: Coordinator {
     
     func startSetting(){
         SettingCoordinator(navigation).start()
+    }
+}
+
+
+extension AppCoordinator: HomeCoordinatorDelegate {
+    func didFinishHomeCoordinator(homeCoordinator: HomeCoordinator) {
+        //handle action when close home screen
+        coordinators["home"] = nil
+        //maybe change roor view for window
+//        window?.rootViewController = xxx
     }
 }

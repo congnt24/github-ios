@@ -31,19 +31,21 @@ extension String {
     }
 }
 
+typealias OnChangeLanguageListener = ()->Void
 
 extension UIViewController {
-    func showLocalizeDialog(){
+    func showLocalizeDialog(onChangeLanguage: @escaping OnChangeLanguageListener){
         let dialog = UIAlertController(title: R.string.localizable.change_language_title.key.localized(), message: R.string.localizable.change_language_message.key.localized()
             , preferredStyle: UIAlertControllerStyle.actionSheet)
         let cancel = UIAlertAction(title: R.string.localizable.cancel.key.localized(), style: .cancel, handler: nil)
         let english = UIAlertAction(title: R.string.localizable.english.key.localized(), style: .default) { _ in
             LanguageHelper.setLanguageTo(lang: "en")
-            AppCoordinator.instance.start()}
+            onChangeLanguage()
+        }
         let vietnamese = UIAlertAction(title: R.string.localizable.vietnamese.key.localized(), style: .default) { _ in
             LanguageHelper.setLanguageTo(lang: "vi")
-            
-            AppCoordinator.instance.start()}
+            onChangeLanguage()
+        }
         dialog.addAction(english)
         dialog.addAction(vietnamese)
         dialog.addAction(cancel)
